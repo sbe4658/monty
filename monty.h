@@ -9,18 +9,19 @@
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include <ctype.h>
 
 typedef unsigned int u_int;
 /**
  * struct file_line_s - singly linked list stores lines from read file.
- * @instruct: a string or the line content.
+ * @content: a string or the line content.
  * @next: the next node in the list.
  *
  * Description: Singly linked list node structure.
  */
 typedef struct file_line_s
 {
-	char *instruct;
+	char *content;
 	struct file_line_s *next;
 } fline_t;
 /**
@@ -53,15 +54,25 @@ typedef struct instruction_s
 {
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
-} instruction_t
+} instruction_t;
 
 /* Functions */
 fline_t *add_line_end(char *);
+void process_lines(void);
+void (*look_for(char *instruction))(stack_t **stack, u_int line_number);
+void free_stack(stack_t **);
+stack_t *add_elem(stack_t **, int);
 void free_fline(void);
 void malloc_fail(void);
-void _pall(stack_t **tophead, unsigned int numline);
-void _pop(stack_t **tophead, unsigned int numline);
+void _pall(stack_t **, unsigned int);
+void _pop(stack_t **, unsigned int);
+void _pint(stack_t **, unsigned int);
+void push(stack_t **, u_int);
+int check_digits(char *);
+void free_all(stack_t **stack);
+char *opcode_at(u_int idx);
 
 /* Global variable */
 extern fline_t *first_line;
+
 #endif

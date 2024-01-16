@@ -12,7 +12,7 @@ fline_t *add_line_end(char *content)
 	new = malloc(sizeof(fline_t));
 	if (!new)
 		malloc_fail();
-	new->instruct = content;
+	new->content = strdup(content);
 	new->next = NULL;
 	if (h)
 	{
@@ -40,4 +40,18 @@ void free_fline(void)
 		free(curr);
 	}
 	first_line = NULL;
+}
+/**
+ * opcode_at - gets the specific line content; mainly for push.
+ * @idx: index.
+ *
+ * Return: The content, or NULL.
+ */
+char *opcode_at(u_int idx)
+{
+	fline_t *h = first_line;
+
+	for (; idx; idx--)
+		h = h->next;
+	return (h->content);
 }

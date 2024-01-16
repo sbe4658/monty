@@ -11,9 +11,9 @@ fline_t *first_line = NULL;
  */
 int main(int ac, char **av)
 {
-	int fd = 0, chrrd = 0;
+	int fd = 0;
 	FILE *input_file;
-	u_int len = 0;
+	size_t len = 0;
 	char *line = NULL;
 
 	if (ac <= 1)
@@ -22,17 +22,16 @@ int main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 	fd = open(av[1], O_RDONLY);
-	input_file = fdopen(fd, 'r');
+	input_file = fdopen(fd, "r");
 	if (fd == -1 || !input_file)
 	{
-		dprintf("Error: can't open file %s\n", av[1]);
+		dprintf(2, "Error: can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
-	while (chrrd != -1)
-	{
-		chrrd = getline(&line, &len, input_file);
+	while (getline(&line, &len, input_file) != -1)
 		add_line_end(line);
-	}
+	process_lines();
+	free_fline();
 	fclose(input_file);
 
 	return (0);
