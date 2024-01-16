@@ -32,12 +32,14 @@ typedef struct file_line_s
  * Description: doubly linked list node structure
  *		for stack, queue; LIFO, FIFO.
  */
+
 typedef struct stack_s
 {
 	int n;
 	struct stack_s *prev;
 	struct stack_s *next;
 } stack_t;
+
 /**
  * struct instrcution_s - opcode and its function
  * @opcode: the opcode.
@@ -46,6 +48,7 @@ typedef struct stack_s
  * Description: opcode and its function
  *		for stack, queue; LIFO, FIFO.
  */
+
 typedef struct instruction_s
 {
 	char *opcode;
@@ -56,6 +59,7 @@ typedef struct instruction_s
 fline_t *add_line_end(char *);
 void free_fline(void);
 void malloc_fail(void);
+void _pall(stack_t **tophead, unsigned int numline)
 
 /* Global variable */
 extern fline_t *first_line;
