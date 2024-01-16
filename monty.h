@@ -60,6 +60,7 @@ fline_t *add_line_end(char *);
 void free_fline(void);
 void malloc_fail(void);
 void _pall(stack_t **tophead, unsigned int numline);
+void _pop(stack_t **tophead, unsigned int numline);
 
 /* Global variable */
 extern fline_t *first_line;
