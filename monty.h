@@ -17,12 +17,14 @@ typedef unsigned int u_int;
  * Description: doubly linked list node structure
  *		for stack, queue; LIFO, FIFO.
  */
+
 typedef struct stack_s
 {
 	int n;
 	struct stack_s *prev;
 	struct stack_s *next;
 } stack_t;
+
 /**
  * struct instrcution_s - opcode and its function
  * @opcode: the opcode.
@@ -31,6 +33,7 @@ typedef struct stack_s
  * Description: opcode and its function
  *		for stack, queue; LIFO, FIFO.
  */
+
 typedef struct instruction_s
 {
 	char *opcode;
@@ -38,5 +41,6 @@ typedef struct instruction_s
 } instruction_t
 
 /* Functions */
+void _pall(stack_t **tophead, unsigned int numline)
 
 #endif
