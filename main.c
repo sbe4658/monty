@@ -1,6 +1,6 @@
 #include "monty.h"
 
-extern fline_t *first_line = NULL;
+fline_t *first_line = NULL;
 
 /**
  * main - monty Bytecode interpreter.

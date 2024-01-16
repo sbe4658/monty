@@ -11,18 +11,13 @@
 void _pall(stack_t **tophead, unsigned int numline)
 {
 	stack_t *pprin;
-	(void)numline;
-	pprin = *doubly 
-		if (pprin == Null)
-	{
+
+	pprin = *stack;
+	if (!pprin)
 		return;
-	}
-	else
-	{
 	while (pprin != NULL)
 	{
 		printf("%d\n", pprin->n);
 		pprin = pprin->next;
-	}
 	}
 }

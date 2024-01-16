@@ -12,7 +12,7 @@
 
 typedef unsigned int u_int;
 /**
- * struct file_lines_s - singly linked list stores lines from read file.
+ * struct file_line_s - singly linked list stores lines from read file.
  * @instruct: a string or the line content.
  * @next: the next node in the list.
  *
@@ -41,7 +41,7 @@ typedef struct stack_s
 } stack_t;
 
 /**
- * struct instrcution_s - opcode and its function
+ * struct instruction_s - opcode and its function
  * @opcode: the opcode.
  * @f: function to handle the opcode.
  *
@@ -59,7 +59,7 @@ typedef struct instruction_s
 fline_t *add_line_end(char *);
 void free_fline(void);
 void malloc_fail(void);
-void _pall(stack_t **tophead, unsigned int numline)
+void _pall(stack_t **tophead, unsigned int numline);
 
 /* Global variable */
 extern fline_t *first_line;
