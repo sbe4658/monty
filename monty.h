@@ -5,9 +5,24 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 typedef unsigned int u_int;
-
+/**
+ * struct file_lines_s - singly linked list stores lines from read file.
+ * @instruct: a string or the line content.
+ * @next: the next node in the list.
+ *
+ * Description: Singly linked list node structure.
+ */
+typedef struct file_line_s
+{
+	char *instruct;
+	struct file_line_s *next;
+} fline_t;
 /**
  * struct stack_s - doubly linked list representation of a stack or (queue).
  * @n: integer.
@@ -38,5 +53,10 @@ typedef struct instruction_s
 } instruction_t
 
 /* Functions */
+fline_t *add_line_end(char *);
+void free_fline(void);
+void malloc_fail(void);
 
+/* Global variable */
+extern fline_t *first_line;
 #endif
