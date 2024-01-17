@@ -16,6 +16,7 @@ void _add(stack_t **tophead, unsigned int numline)
 	if (len_stack(tempo) < 2)
 	{
 		dprintf(2, "L%u: can't add, stack too short\n", numline);
+		free_all(tophead);
 		exit(EXIT_FAILURE);
 	}
 
