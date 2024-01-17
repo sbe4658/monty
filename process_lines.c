@@ -16,6 +16,13 @@ void process_lines(void)
 	{
 		tmp = strdup(line->content);
 		check = strtok(tmp, " \t\r\n");
+		if (strcmp("nop", check) == 0 || *check == '#')
+		{
+			free(tmp);
+			line = line->next;
+			n++;
+			continue;
+		}
 		clear_inst = look_for(check);
 		if (!clear_inst)
 		{
