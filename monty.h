@@ -81,7 +81,7 @@ void _swap(stack_t **tophead, unsigned int numline);
 /* Math opcodes */
 void _add(stack_t **tophead, unsigned int numline);
 void sub(stack_t **tophead, unsigned int numline);
-void div(stack_t **tophead, unsigned int numline);
+void _div(stack_t **tophead, unsigned int numline);
 void mul(stack_t **tophead, unsigned int numline);
 void mod(stack_t **tophead, unsigned int numline);
 

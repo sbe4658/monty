@@ -45,13 +45,13 @@ void sub(stack_t **tophead, unsigned int numline)
 	_pop(tophead, numline);
 }
 /**
- * div - divides the top two elements of the stack
+ * _div - divides the top two elements of the stack
  *
  * @tophead:the head of the linked list
  * @numline: numbers line;
  * Return: return nothing
  */
-void div(stack_t **tophead, unsigned int numline)
+void _div(stack_t **tophead, unsigned int numline)
 {
 	stack_t *tempo = NULL;
 
