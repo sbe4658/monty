@@ -21,7 +21,6 @@ void _add(stack_t **tophead, unsigned int numline)
 	if (cnt < 2)
 	{
 		dprintf(2, "L%u: can't add, stack too short\n", numline);
-		free_all();
 		exit(EXIT_FAILURE);
 	}
 

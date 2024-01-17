@@ -33,7 +33,6 @@ void _pint(stack_t **tophead, unsigned int numline)
 	{
 		dprintf(2, "L%u: ", numline);
 		dprintf(2, "can't pint, stack empty\n");
-		free_all();
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*tophead)->n);
@@ -54,7 +53,6 @@ void _pop(stack_t **tophead, unsigned int numline)
 	if (tophead == NULL || *tophead == NULL)
 	{
 		dprintf(2, "L%u: can't pop an empty stack\n", numline);
-		free_all();
 		exit(EXIT_FAILURE);
 	}
 	else
@@ -84,7 +82,6 @@ void push(stack_t **tophead, unsigned int numline)
 	if (check_digits(elem))
 	{
 		dprintf(2, "L%u: usage: push integer\n", numline);
-		free(tmp);
 		free_all(tophead);
 	}
 	n = atoi(elem);
@@ -113,7 +110,6 @@ void _swap(stack_t **tophead, unsigned int numline)
 	if (cnt < 2)
 	{
 		dprintf(2, "L%u: can't swap, stack too short\n", numline);
-		free_all();
 		exit(EXIT_FAILURE);
 	}
 
