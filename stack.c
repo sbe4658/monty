@@ -42,3 +42,17 @@ void free_stack(stack_t **h)
 	}
 	h = NULL;
 }
+/**
+ * len_stack - gets the length of the stack.
+ * @h: the head node.
+ *
+ * Return: The number of elements in the stack.
+ */
+int len_stack(stack_t *h)
+{
+	int len = 0;
+
+	for (; h; len++)
+		h = h->next;
+	return (len);
+}

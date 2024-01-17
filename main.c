@@ -25,14 +25,14 @@ int main(int ac, char **av)
 	input_file = fdopen(fd, "r");
 	if (fd == -1 || !input_file)
 	{
-		dprintf(2, "Error: can't open file %s\n", av[1]);
+		dprintf(2, "Error: Can't open file %s\n", av[1]);
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&line, &len, input_file) != -1)
 		add_line_end(line);
+	free(line);
+	fclose(input_file);
 	process_lines();
 	free_fline();
-	fclose(input_file);
-
 	return (0);
 }

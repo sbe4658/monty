@@ -62,6 +62,7 @@ void process_lines(void);
 void (*look_for(char *instruction))(stack_t **stack, u_int line_number);
 void free_stack(stack_t **);
 stack_t *add_elem(stack_t **, int);
+int len_stack(stack_t *);
 void free_fline(void);
 void malloc_fail(void);
 void _pall(stack_t **tophead, unsigned int numline);

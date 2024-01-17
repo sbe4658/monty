@@ -25,8 +25,8 @@ void process_lines(void)
 			free(tmp);
 			exit(EXIT_FAILURE);
 		}
-		clear_inst(&top, n);
 		free(tmp);
+		clear_inst(&top, n);
 		line = line->next;
 		n++;
 	}
@@ -45,6 +45,7 @@ void (*look_for(char *instruction))(stack_t **stack, u_int line_number)
 		{"pop", _pop},
 		{"pint", _pint},
 		{"push", push},
+		{"swap", _swap},
 		{NULL, NULL}
 	};
 	int i = 0;

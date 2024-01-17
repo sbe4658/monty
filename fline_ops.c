@@ -37,6 +37,7 @@ void free_fline(void)
 	{
 		curr = first_line;
 		first_line = first_line->next;
+		free(curr->content);
 		free(curr);
 	}
 	first_line = NULL;
