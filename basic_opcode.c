@@ -37,6 +37,7 @@ void _pint(stack_t **tophead, unsigned int numline)
 	}
 	printf("%d\n", (*tophead)->n);
 }
+
 /**
  * _pop - deletes the top element in the stack
  *
@@ -44,6 +45,7 @@ void _pint(stack_t **tophead, unsigned int numline)
  * @numline: numbers of line
  * Return: return nothing
  */
+
 void _pop(stack_t **tophead, unsigned int numline)
 {
 	stack_t *tempo;
@@ -60,28 +62,62 @@ void _pop(stack_t **tophead, unsigned int numline)
 		free(tempo);
 	}
 }
+
 /**
  * push - pushs a new  element to the stack.
- * @stack: the stack.
- * @line_number: line number.
+ * @tophead: the head of the linked  list.
+ * @numline: numbers line.
  *
- * Return: Nothing.
+ * Return: return nothing.
  */
-void push(stack_t **stack, u_int line_number)
+
+void push(stack_t **tophead, unsigned int numline)
 {
 	int n = 0;
 	char *tmp, *elem;
 
-	tmp = opcode_at(line_number - 1);
+	tmp = opcode_at(numline - 1);
 	strtok(tmp, " \t\r");
 	elem = strtok(NULL, " \n\t\r");
 	if (check_digits(elem))
 	{
-		dprintf(2, "L%u: usage: push integer\n", line_number);
+		dprintf(2, "L%u: usage: push integer\n", numline);
 		free(tmp);
-		free_all(stack);
+		free_all(tophead);
 	}
 	n = atoi(elem);
-	add_elem(stack, n);
+	add_elem(tophead, n);
 	free(tmp);
+}
+
+/**
+ * _swap - swaps the positions of the top two elements
+ *
+ * @tophead: the head of the linked list
+ * @numline: numbers of line
+ * Return: return nothing
+ */
+
+void _swap(stack_t **tophead, unsigned int numline)
+{
+	int cnt = 0;
+	stack_t *tempo = NULL;
+
+	tempo = *tophead;
+
+	for (; tempo != NULL; tempo = tempo->next, cnt++)
+		;
+
+	if (cnt < 2)
+	{
+		dprintf(2, "L%u: can't swap, stack too short\n", numline);
+		exit(EXIT_FAILURE);
+	}
+
+	tempo = *tophead;
+	*tophead = (*tophead)->next;
+	tempo->next = (*tophead)->next;
+	tempo->prev = *tophead;
+	(*tophead)->next = tempo;
+	(*tophead)->prev = NULL;
 }
