@@ -54,6 +54,10 @@ void (*look_for(char *instruction))(stack_t **stack, u_int line_number)
 		{"push", push},
 		{"swap", _swap},
 		{"add", _add},
+		{"sub", sub},
+		{"mul", mul},
+		{"div", div},
+		{"mod", mod},
 		{NULL, NULL}
 	};
 	int i = 0;

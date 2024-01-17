@@ -57,24 +57,37 @@ typedef struct instruction_s
 } instruction_t;
 
 /* Functions */
-fline_t *add_line_end(char *);
 void process_lines(void);
 void (*look_for(char *instruction))(stack_t **stack, u_int line_number);
-void free_stack(stack_t **);
-stack_t *add_elem(stack_t **, int);
-int len_stack(stack_t *);
+int check_digits(char *);
+
+/* File line functions */
+fline_t *add_line_end(char *);
+char *opcode_at(u_int idx);
 void free_fline(void);
-void malloc_fail(void);
+
+/* Stack functions */
+stack_t *add_elem(stack_t **, int);
+void free_stack(stack_t **);
+int len_stack(stack_t *);
+
+/* Basic opcodes */
 void _pall(stack_t **tophead, unsigned int numline);
 void _pop(stack_t **tophead, unsigned int numline);
 void _pint(stack_t **tophead, unsigned int numline);
 void push(stack_t **tophead, unsigned int numline);
-void _nop(stack_t **tophead, unsigned int numline);
-void _add(stack_t **tophead, unsigned int numline);
 void _swap(stack_t **tophead, unsigned int numline);
-int check_digits(char *);
+
+/* Math opcodes */
+void _add(stack_t **tophead, unsigned int numline);
+void sub(stack_t **tophead, unsigned int numline);
+void div(stack_t **tophead, unsigned int numline);
+void mul(stack_t **tophead, unsigned int numline);
+void mod(stack_t **tophead, unsigned int numline);
+
+/* Error functions */
+void malloc_fail(void);
 void free_all(stack_t **stack);
-char *opcode_at(u_int idx);
 
 /* Global variable */
 extern fline_t *first_line;
