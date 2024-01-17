@@ -33,6 +33,7 @@ void _pint(stack_t **tophead, unsigned int numline)
 	{
 		dprintf(2, "L%u: ", numline);
 		dprintf(2, "can't pint, stack empty\n");
+		free_first_line();
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*tophead)->n);
