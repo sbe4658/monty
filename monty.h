@@ -74,7 +74,6 @@ void _swap(stack_t **tophead, unsigned int numline);
 int check_digits(char *);
 void free_all(stack_t **stack);
 char *opcode_at(u_int idx);
-void free_first_line(void);
 
 /* Global variable */
 extern fline_t *first_line;
