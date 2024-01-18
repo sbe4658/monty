@@ -91,6 +91,8 @@ void mod(stack_t **tophead, unsigned int numline);
 /* Printing opcode */
 void pchar(stack_t **, unsigned int);
 void pstr(stack_t **, unsigned int);
+void rotr(stack_t **, unsigned int);
+void rotl(stack_t **, unsigned int);
 
 /* Error functions */
 void malloc_fail(void);

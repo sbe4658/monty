@@ -43,3 +43,43 @@ void pstr(stack_t **stack, __attribute__((unused)) u_int line_number)
 	}
 	printf("\n");
 }
+/**
+ * rotl - rotate the stack to the top.
+ * @stack: the top.
+ * @line_number: line number.
+ *
+ * Return: Nothing.
+ */
+void rotl(stack_t **stack, __attribute__((unused)) u_int line_number)
+{
+	int tmp = 0;
+	stack_t *h = *stack;
+
+	if (len_stack(h) > 1)
+	{
+		tmp = h->n;
+		add_elem(stack, tmp);
+		_pop(stack, line_number);
+	}
+}
+/**
+ * rotr - rotate the stack to the bottom.
+ * @stack: the top.
+ * @line_number: line number.
+ *
+ * Return: Nothing.
+ */
+void rotr(stack_t **stack, __attribute__((unused)) u_int line_number)
+{
+	int tmp = 0;
+	stack_t *h = *stack;
+
+	if (len_stack(h) > 1)
+	{
+		tmp = h->n;
+		while (h->next)
+			h = h->next;
+		(*stack)->n = h->n;
+		h->n = tmp;
+	}
+}
