@@ -9,10 +9,27 @@ int check_digits(char *s)
 {
 	int i = 0;
 
+	if (s[0] == '-')
+		i++;
 	for (; s[i]; i++)
 	{
 		if (isdigit(s[i]) == 0)
 			return (-1);
 	}
 	return (0);
+}
+/**
+ * skip_line - handles empty lines, other cases where line is skipped.
+ * @src: source.
+ * @opcode: opcode.
+ *
+ * Return: if line should be skipped otherwise 1.
+ */
+int skip_line(char *src, char *opcode)
+{
+	if (strcmp(src, "\n") == 0)
+		return (0);
+	else if (strcmp("nop", src) == 0 || opcode[0] == '#')
+		return (0);
+	return (1);
 }

@@ -60,6 +60,7 @@ typedef struct instruction_s
 void process_lines(void);
 void (*look_for(char *instruction))(stack_t **stack, u_int line_number);
 int check_digits(char *);
+int skip_line(char *src, char *opcode);
 
 /* File line functions */
 fline_t *add_line_end(char *);
