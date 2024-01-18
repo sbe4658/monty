@@ -26,7 +26,7 @@ void process_lines(void)
 		clear_inst = look_for(check);
 		if (!clear_inst)
 		{
-			dprintf(2, "L%u: unknown instruction %s\n", n, check);
+			dprintf(2, "L%u: unknown instruction %s\n", n, tmp);
 			free_fline();
 			free_stack(&top);
 			free(tmp);
