@@ -77,7 +77,7 @@ void push(stack_t **tophead, unsigned int numline)
 	tmp = opcode_at(numline - 1);
 	strtok(tmp, " \t\r");
 	elem = strtok(NULL, " \n\t\r");
-	if (check_digits(elem))
+	if (!elem || check_digits(elem))
 	{
 		dprintf(2, "L%u: usage: push integer\n", numline);
 		free_all(tophead);
