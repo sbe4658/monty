@@ -57,6 +57,8 @@ void (*look_for(char *instruction))(stack_t **stack, u_int line_number)
 		{"mod", mod},
 		{"pchar", pchar},
 		{"pstr", pstr},
+		{"rotr", rotr},
+		{"rotl", rotl},
 		{NULL, NULL}
 	};
 	int i = 0;

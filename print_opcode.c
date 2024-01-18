@@ -58,8 +58,8 @@ void rotl(stack_t **stack, __attribute__((unused)) u_int line_number)
 	if (len_stack(h) > 1)
 	{
 		tmp = h->n;
-		add_elem(stack, tmp);
 		_pop(stack, line_number);
+		add_elem(stack, tmp);
 	}
 }
 /**
