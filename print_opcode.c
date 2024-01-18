@@ -10,7 +10,7 @@ void pchar(stack_t **stack, u_int line_number)
 {
 	stack_t *h = *stack;
 
-	if (h)
+	if (!h)
 	{
 		dprintf(STDERR_FILENO, "L%u: can't pchar, stack empty\n", line_number);
 		free_all(stack);
@@ -24,7 +24,7 @@ void pchar(stack_t **stack, u_int line_number)
 	}
 }
 /**
- * pstr - prints a string. 
+ * pstr - prints a string.
  * @stack: the top.
  * @line_number: line number.
  *
@@ -32,7 +32,7 @@ void pchar(stack_t **stack, u_int line_number)
  */
 void pstr(stack_t **stack, __attribute__((unused)) u_int line_number)
 {
-	stack_t *h= *stack;
+	stack_t *h = *stack;
 
 	while (h)
 	{
