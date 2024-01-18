@@ -74,7 +74,7 @@ void push(stack_t **tophead, unsigned int numline)
 	int n = 0;
 	char *tmp, *elem;
 
-	tmp = opcode_at(numline - 1);
+	tmp = opcode_at(numline);
 	strtok(tmp, " \t\r");
 	elem = strtok(NULL, " \n\t\r");
 	if (!elem || check_digits(elem))

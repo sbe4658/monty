@@ -15,6 +15,7 @@ typedef unsigned int u_int;
 /**
  * struct file_line_s - singly linked list stores lines from read file.
  * @content: a string or the line content.
+ * @num:: line number.
  * @next: the next node in the list.
  *
  * Description: Singly linked list node structure.
@@ -22,6 +23,7 @@ typedef unsigned int u_int;
 typedef struct file_line_s
 {
 	char *content;
+	u_int num;
 	struct file_line_s *next;
 } fline_t;
 /**
@@ -60,10 +62,10 @@ typedef struct instruction_s
 void process_lines(void);
 void (*look_for(char *instruction))(stack_t **stack, u_int line_number);
 int check_digits(char *);
-int skip_line(char *src, char *opcode);
+int skip_line(char *);
 
 /* File line functions */
-fline_t *add_line_end(char *);
+fline_t *add_line_end(char *, u_int);
 char *opcode_at(u_int idx);
 void free_fline(void);
 

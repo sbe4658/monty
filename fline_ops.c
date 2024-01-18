@@ -2,10 +2,11 @@
 /**
  * add_line_end - adds a new element.
  * @content: the line content.
+ * @line_number: line number.
  *
  * Return: the address, otherwise NULL.
  */
-fline_t *add_line_end(char *content)
+fline_t *add_line_end(char *content, u_int line_number)
 {
 	fline_t *new, *h = first_line;
 
@@ -13,6 +14,7 @@ fline_t *add_line_end(char *content)
 	if (!new)
 		malloc_fail();
 	new->content = strdup(content);
+	new->num = line_number;
 	new->next = NULL;
 	if (h)
 	{
@@ -44,7 +46,7 @@ void free_fline(void)
 }
 /**
  * opcode_at - gets the specific line content; mainly for push.
- * @idx: index.
+ * @idx: index to a line number.
  *
  * Return: The content, or NULL.
  */
@@ -52,7 +54,11 @@ char *opcode_at(u_int idx)
 {
 	fline_t *h = first_line;
 
-	for (; idx; idx--)
+	while (h)
+	{
+		if (h->num == idx)
+			return (h->content);
 		h = h->next;
-	return (h->content);
+	}
+	return (NULL);
 }

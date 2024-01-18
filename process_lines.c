@@ -7,7 +7,6 @@
 void process_lines(void)
 {
 	stack_t *top = NULL;
-	int n = 1;
 	char *tmp, *check;
 	fline_t *line = first_line;
 	void (*clear_inst)(stack_t **stack, u_int line_number);
@@ -16,26 +15,24 @@ void process_lines(void)
 	{
 		tmp = strdup(line->content);
 		check = strtok(tmp, " \t\r\n");
-		if (skip_line(tmp, check) == 0)
+		if (strcmp("nop", check) == 0 || check[0] == '#')
 		{
-			free(tmp);
 			line = line->next;
-			n++;
+			free(tmp);
 			continue;
 		}
 		clear_inst = look_for(check);
 		if (!clear_inst)
 		{
-			dprintf(2, "L%u: unknown instruction %s\n", n, tmp);
+			dprintf(2, "L%u: unknown instruction %s\n", line->num, tmp);
 			free_fline();
 			free_stack(&top);
 			free(tmp);
 			exit(EXIT_FAILURE);
 		}
 		free(tmp);
-		clear_inst(&top, n);
+		clear_inst(&top, line->num);
 		line = line->next;
-		n++;
 	}
 	free_stack(&top);
 }

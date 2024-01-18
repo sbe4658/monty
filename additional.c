@@ -21,15 +21,19 @@ int check_digits(char *s)
 /**
  * skip_line - handles empty lines, other cases where line is skipped.
  * @src: source.
- * @opcode: opcode.
  *
  * Return: if line should be skipped otherwise 1.
  */
-int skip_line(char *src, char *opcode)
+int skip_line(char *src)
 {
+	int i;
+
 	if (strcmp(src, "\n") == 0)
 		return (0);
-	else if (strcmp("nop", src) == 0 || opcode[0] == '#')
-		return (0);
-	return (1);
+	for (i = 0; src[i]; i++)
+	{
+		if (isalpha(src[i]))
+			return (1);
+	}
+	return (0);
 }

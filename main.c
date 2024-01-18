@@ -11,7 +11,7 @@ fline_t *first_line = NULL;
  */
 int main(int ac, char **av)
 {
-	int fd = 0;
+	int fd = 0, n = 1;
 	FILE *input_file;
 	size_t len = 0;
 	char *line = NULL;
@@ -29,7 +29,12 @@ int main(int ac, char **av)
 		exit(EXIT_FAILURE);
 	}
 	while (getline(&line, &len, input_file) != -1)
-		add_line_end(line);
+	{
+		if (skip_line(line))
+			add_line_end(line, n);
+		n++;
+
+	}
 	free(line);
 	fclose(input_file);
 	process_lines();
