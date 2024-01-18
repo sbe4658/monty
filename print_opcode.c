@@ -30,7 +30,7 @@ void pchar(stack_t **stack, u_int line_number)
  *
  * Return: Nothing.
  */
-void pchar(stack_t **stack, u_int line_number)
+void pstr(stack_t **stack, __attribute__((unused)) u_int line_number)
 {
 	stack_t *h= *stack;
 
@@ -41,5 +41,4 @@ void pchar(stack_t **stack, u_int line_number)
 		putchar(h->n);
 	}
 	printf("\n");
-	}
 }

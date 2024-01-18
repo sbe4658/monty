@@ -89,8 +89,8 @@ void mul(stack_t **tophead, unsigned int numline);
 void mod(stack_t **tophead, unsigned int numline);
 
 /* Printing opcode */
-void pchar(lstack_t **, unsigned int);
-void pstr(lstack_t **, unsigned int);
+void pchar(stack_t **, unsigned int);
+void pstr(stack_t **, unsigned int);
 
 /* Error functions */
 void malloc_fail(void);
