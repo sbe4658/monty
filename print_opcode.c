@@ -36,7 +36,7 @@ void pstr(stack_t **stack, __attribute__((unused)) u_int line_number)
 
 	while (h)
 	{
-		if (!isascii(h->n))
+		if (!isascii(h->n) || h->n == 0)
 			break;
 		putchar(h->n);
 	}
