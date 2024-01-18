@@ -39,6 +39,7 @@ void pstr(stack_t **stack, __attribute__((unused)) u_int line_number)
 		if (!isascii(h->n) || h->n == 0)
 			break;
 		putchar(h->n);
+		h = h->next;
 	}
 	printf("\n");
 }
