@@ -88,6 +88,10 @@ void _div(stack_t **tophead, unsigned int numline);
 void mul(stack_t **tophead, unsigned int numline);
 void mod(stack_t **tophead, unsigned int numline);
 
+/* Printing opcode */
+void pchar(lstack_t **, unsigned int);
+void pstr(lstack_t **, unsigned int);
+
 /* Error functions */
 void malloc_fail(void);
 void free_all(stack_t **stack);
