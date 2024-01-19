@@ -79,9 +79,7 @@ void rotr(stack_t **stack, __attribute__((unused)) u_int line_number)
 	if (len_stack(h) > 1)
 	{
 		tmp = h->n;
-		while (h->next)
-			h = h->next;
-		(*stack)->n = h->n;
-		h->n = tmp;
+		_pop(stack, line_number);
+		add_elem_end(stack, tmp);
 	}
 }
