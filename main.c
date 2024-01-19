@@ -16,7 +16,7 @@ int main(int ac, char **av)
 	size_t len = 0;
 	char *line = NULL;
 
-	if (ac <= 1)
+	if (ac != 2)
 	{
 		dprintf(2, "USAGE: monty file\n");
 		exit(EXIT_FAILURE);
