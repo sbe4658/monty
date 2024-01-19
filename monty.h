@@ -73,6 +73,7 @@ void free_fline(void);
 stack_t *add_elem(stack_t **, int);
 void free_stack(stack_t **);
 int len_stack(stack_t *);
+stack_t *add_elem_end(stack_t **, int);
 
 /* Basic opcodes */
 void _pall(stack_t **tophead, unsigned int numline);

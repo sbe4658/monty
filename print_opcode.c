@@ -55,11 +55,13 @@ void rotl(stack_t **stack, __attribute__((unused)) u_int line_number)
 	int tmp = 0;
 	stack_t *h = *stack;
 
-	if (len_stack(h) > 1)
+	if (len_stack(h) == 2)
+		_swap(stack, line_number);
+	if (len_stack(h) > 3)
 	{
 		tmp = h->n;
 		_pop(stack, line_number);
-		add_elem(stack, tmp);
+		add_elem_end(stack, tmp);
 	}
 }
 /**
